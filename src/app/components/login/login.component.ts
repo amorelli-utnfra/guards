@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent {
     password: new FormControl("", Validators.required)
   });
 
+  constructor(private router: Router) { }
+
   login() {
 
     if (this.loginForm.invalid) {
@@ -25,6 +28,7 @@ export class LoginComponent {
 
     localStorage.setItem("current-user", userDataString);
 
+    this.router.navigate(["/auth"]);
   }
 
 }

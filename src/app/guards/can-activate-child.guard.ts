@@ -6,7 +6,7 @@ export const canActivateChildGuard: CanActivateChildFn = (childRoute, state) => 
 
   const auth = inject(AuthService);
 
-  if(auth.geuUser()) {
+  if(auth.getUser()) {
     console.log("Puede pasar");
     return true;
   }

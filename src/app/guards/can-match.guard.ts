@@ -6,7 +6,7 @@ export const canMatchGuard: CanMatchFn = (route, segments) => {
 
   const auth = inject(AuthService);
 
-  if(auth.geuUser()) {
+  if(auth.getUser()) {
     console.log("puede pasar");
     return true
   }

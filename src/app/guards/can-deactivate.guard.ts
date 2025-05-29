@@ -2,13 +2,13 @@ import { CanDeactivateFn } from '@angular/router';
 import { FormComponent } from '../components/form/form.component';
 
 export const canDeactivateGuard: CanDeactivateFn<FormComponent> = (component, currentRoute, currentState, nextState) => {
-  const hasUnsavedChanges = component.form.dirty;
+  const invalid = component.form.invalid;
 
-  if (hasUnsavedChanges) {
-    console.log("Tiene datos sin guardar");
+  if (invalid) {
+    console.log("El formulario no esta completo");
     return false;
   } else {
-    // No unsaved changes, allow navigation
+  
     console.log("puede salir del componente");
     
     return true;

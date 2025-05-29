@@ -33,7 +33,7 @@ export const routes: Routes = [
     },
     {
         path: "auth",
-        data: {midata: "datos de ruta"},
+        data: { role: "gerente general" },
         component: HomeComponent,
         canActivate: [authGuard]
     },
@@ -47,5 +47,10 @@ export const routes: Routes = [
         component: MatchComponent,
         canMatch: [canMatchGuard]
     },
+    {
+        path: "modules",
+        loadChildren: () => import('./modules/modules-routing.module').then(m => m.ModulesRoutingModule),
+        canMatch: [canMatchGuard]
+    }
 
 ];

@@ -15,7 +15,7 @@ export class AuthService {
     localStorage.setItem(STORAGE_KEY , userDataString);
   }
 
-  geuUser() {
+  getUser() {
     const userData = localStorage.getItem(STORAGE_KEY);
     return userData ? JSON.parse(userData) : null;
   }
